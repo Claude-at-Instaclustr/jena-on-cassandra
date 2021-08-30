@@ -29,6 +29,9 @@ import org.apache.jena.graph.GraphUtil;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.Triple;
 import org.apache.jena.query.ReadWrite;
+import org.apache.jena.query.TxnType;
+import org.apache.jena.riot.system.PrefixMap;
+import org.apache.jena.sparql.JenaTransactionException;
 import org.apache.jena.sparql.core.DatasetGraphBase;
 import org.apache.jena.sparql.core.Quad;
 import org.apache.jena.util.iterator.NiceIterator;
@@ -204,6 +207,34 @@ public class DatasetGraphCassandra extends DatasetGraphBase {
 		Quad q = new Quad( g, s==null?Node.ANY:s, p==null?Node.ANY:p, o==null?Node.ANY:o );
 		QueryPattern pattern = new QueryPattern(connection, q);	
 		pattern.doDelete(keyspace);	
+	}
+
+	@Override
+	public PrefixMap prefixes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void begin(TxnType type) {
+		throw new JenaTransactionException( "Transactions not supported");
+	}
+
+	@Override
+	public boolean promote(Promote mode) {
+		return true;
+	}
+
+	@Override
+	public ReadWrite transactionMode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TxnType transactionType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

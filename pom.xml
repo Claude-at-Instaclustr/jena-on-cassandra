@@ -17,12 +17,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Jena-on-Cassandra</name>
 	<description>Implementation of Jena graph on Cassandra</description>
-	<parent>
-		<groupId>org.apache.jena</groupId>
-		<artifactId>jena-parent</artifactId>
-		<version>18-SNAPSHOT</version>
 
-	</parent>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.jena</groupId>
@@ -63,11 +58,14 @@
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<scope>test</scope>
-		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>3.12.4</version>
+    <scope>test</scope>
+</dependency>
+
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
@@ -173,6 +171,6 @@
 		</dependencies>
 	</dependencyManagement>
 	<properties>
-		<jena-version>3.2.0-SNAPSHOT</jena-version>
+		<jena-version>4.1.0</jena-version>
 	</properties>
 </project>

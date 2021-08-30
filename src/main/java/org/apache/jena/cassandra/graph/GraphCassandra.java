@@ -164,22 +164,7 @@ public class GraphCassandra extends GraphBase {
 	@Override
 	public Capabilities getCapabilities() {
 		if (capabilities == null)
-			capabilities = new AllCapabilities() {
-				@Override
-				public boolean addAllowed(boolean every) {
-					return !graph.equals(Node.ANY);
-				}
-
-				@Override
-				public boolean deleteAllowed(boolean every) {
-					return !graph.equals(Node.ANY);
-				}
-
-				@Override
-				public boolean iteratorRemoveAllowed() {
-					return false;
-				}
-			};
+			capabilities = new AllCapabilities();
 		return capabilities;
 	}
 
